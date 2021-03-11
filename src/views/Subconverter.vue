@@ -5,8 +5,6 @@
         <el-card>
           <div slot="header">
             订阅转换
-            <svg-icon icon-class="github" style="margin-left: 20px" @click="goToProject" />
-            <svg-icon icon-class="telegram" style="margin-left: 20px" @click="gotoTgChannel" />
 
             <div style="display: inline-block; position:absolute; right: 20px">{{ backendVersion }}</div>
           </div>
@@ -174,10 +172,11 @@
               </el-form-item>
             </el-form>
           </el-container>
+
         </el-card>
       </el-col>
     </el-row>
-
+<div class="el-card is-always-shadow"><!----><div class="el-card__body"><div style="text-align: center;"><a href="https://cuojue.org" class="el-button el-button--default el-button--small" style="text-decoration: none;">WeiCN</a><a href="https://github.com/CareyWang/sub-web" target="_blank" class="el-button el-button--default el-button--small" style="text-decoration: none;">CareyWang</a></div></div></div>
     <el-dialog
       :visible.sync="dialogUploadConfigVisible"
       :show-close="false"
@@ -255,26 +254,17 @@ export default {
           "自动判断客户端": "auto",
         },
         customBackend: {
-          "localhost:25500 本地版": "http://localhost:25500/sub?",
-          "sub-beta.now.sh (自动编译最新版本后端-测试）": "https://sub-beta.now.sh/sub?",
-          "subcon.dlj.tf(subconverter作者提供-稳定)":
-            "https://subcon.dlj.tf/sub?",
-          "api.dler.io(sub作者&lhie1提供-稳定)": "https://api.dler.io/sub?",
-          "api.wcc.best(sub-web作者提供-稳定)": "https://api.wcc.best/sub?",
+          "https://sub.789.st/sub?": "https://sub.789.st/sub?"
         },
         backendOptions: [
-          { value: "http://localhost:25500/sub?" },
-          { value: "https://sub-beta.now.sh/sub?" },
-          { value: "https://subcon.dlj.tf/sub?" },
-          { value: "https://api.dler.io/sub?" },
-          { value: "https://api.wcc.best/sub?" },
+          { value: "https://sub.789.st/sub?" }
         ],
         remoteConfig: [
           {
             label: "默认",
             options: [
               {
-                label: "不选，由接口提供方提供",
+                label: "默认规则",
                 value: ""
               }
             ]
@@ -509,7 +499,7 @@ export default {
         clientType: "",
         customBackend: "",
         remoteConfig: "",
-        excludeRemarks: "",
+        excludeRemarks: "流量|过期|官网|落地|回国",
         includeRemarks: "",
         filename: "",
         emoji: true,
@@ -573,8 +563,8 @@ export default {
     }
   },
   mounted() {
-    this.form.clientType = "clash";
-    this.form.customBackend = "https://sub-beta.now.sh/sub?";
+    this.form.clientType = "clashr";
+    this.form.customBackend = "https://sub.789.st/sub?";
     this.form.remoteConfig = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini";
     this.getBackendVersion();
   },
