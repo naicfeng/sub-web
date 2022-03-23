@@ -639,7 +639,8 @@ export default {
     };
   },
   created() {
-    document.title = "Subscription Converter";
+    // document.title = "Subscription Converter";
+    document.title = "在线订阅转换";
     this.isPC = this.$getOS().isPc;
 
     // 获取 url cache
